@@ -1,0 +1,14 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    volumes:
+      - .:/maestro_api
+    ports:
+      - "4200:4200"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
